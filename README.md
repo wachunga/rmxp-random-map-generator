@@ -43,6 +43,7 @@ Finally, the optional parameter <save> may immediately follow <rand> to indicate
 Events are not erased on the map which will be randomly generated, but there is no way to guarantee they'll be positioned correctly. (The only exceptions to this are two events which determine the start and end of the maze.)
   
 Place an event named <start> to specify a location you'd like the player to begin the maze (else a default is chosen). To avoid appearing inside a wall,  the start location should not be at any of the four corners of the map nor any tile where x is even or y is odd (exceptions occur along an edge of the map, i.e. when x=0, x=width-1, y=0 or y=height-1).  The diagram below may clarify, where discouraged starting points are marked with an X:
+
 ```  
   y\x 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19
    0  X     X     X     X     X     X     X     X     X     X  X  
@@ -80,7 +81,9 @@ FAQ
 > How can I make the generated map persist across saves?
 
 You'll need Near Fantastica's Dynamic Maps script, but change Game_Map.setup to:
-```class Game_Map
+
+```ruby
+class Game_Map
  #--------------------------------------------------------------
  # modified slightly: only certain maps are actually saved
  def setup(map_id)
