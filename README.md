@@ -11,8 +11,6 @@ The generation algorithm can be guided by certain parameters, and tile selection
 
 ![Another maze](http://s88387243.onlinehome.us/rmxp/rand_maze2.jpg)
 
-![Yet another maze](http://s88387243.onlinehome.us/rmxp/rand_maze3.jpg)
-
 
 Sample uses:
 
@@ -36,13 +34,13 @@ Copy the script in `src`, and open the Script Editor within RMXP. At the bottom 
 Usage
 ---
 
-To indicate a map is to be randomly generated, include <rand> in its name.  You may also optionally specify custom randomness, sparsity and deadend removal parameters to guide how the map is generated (see comments within for more details).  These may also be included in the map name, as in this example: "XYZ <rand><0.8><5><0.8>" (from left to right, randomness, sparsity and deadend removal in that order).
+To indicate a map is to be randomly generated, include `<rand>` in its name.  You may also optionally specify custom randomness, sparsity and deadend removal parameters to guide how the map is generated (see comments within for more details).  These may also be included in the map name, as in this example: `XYZ <rand><0.8><5><0.8>` (from left to right, randomness, sparsity and deadend removal in that order).
   
-Finally, the optional parameter <save> may immediately follow <rand> to indicate that the map should be generated randomly the first time but then saved and remain the same thereafter instead of randomizing again. This requires an additional script (see FAQ below).
+Finally, the optional parameter `<save>` may immediately follow `<rand>` to indicate that the map should be generated randomly the first time but then saved and remain the same thereafter instead of randomizing again. This requires an additional script (see FAQ below).
   
 Events are not erased on the map which will be randomly generated, but there is no way to guarantee they'll be positioned correctly. (The only exceptions to this are two events which determine the start and end of the maze.)
   
-Place an event named <start> to specify a location you'd like the player to begin the maze (else a default is chosen). To avoid appearing inside a wall,  the start location should not be at any of the four corners of the map nor any tile where x is even or y is odd (exceptions occur along an edge of the map, i.e. when x=0, x=width-1, y=0 or y=height-1).  The diagram below may clarify, where discouraged starting points are marked with an X:
+Place an event named `<start>` to specify a location you'd like the player to begin the maze (else a default is chosen). To avoid appearing inside a wall,  the start location should not be at any of the four corners of the map nor any tile where x is even or y is odd (exceptions occur along an edge of the map, i.e. when x=0, x=width-1, y=0 or y=height-1).  The diagram below may clarify, where discouraged starting points are marked with an X:
 
 ```  
   y\x 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19
@@ -67,11 +65,11 @@ Place an event named <start> to specify a location you'd like the player to begi
    
 If you want there to be a passage leading off the map, the start location must be placed on an edge (i.e. x=0, y=0, x=width-1 or y=height-1). Alternatively, the start and/or exit locations can be somewhere in the interior of the map... in this case the player arrives/exits by magic, falling, climbing, etc.
   
-All the above also applies for the exit location, except the event is named <end>.  Again, a default end is chosen if one is not supplied.
+All the above also applies for the exit location, except the event is named `<end>`.  Again, a default end is chosen if one is not supplied.
 
 Of course, if the player is to be able to exit the map from either of these two points, you must make the event teleport appropriately.
   
-Also, the teleport into the maze should point at same square as the <start> event, or else you may get stuck in a wall.
+Also, the teleport into the maze should point at same square as the `<start>` event, or else you may get stuck in a wall.
   
 You can specify which tiles to use for the floor, walls, etc in the Maze class (just add an appropriate 'elsif').
 
@@ -101,13 +99,13 @@ end
 
 > I can't figure out how to use the parameters (randomness, sparsity and deadend removal)
 
-If you want to specify them (they're optional), you include them in the map name, as in this example: "your-map-name <rand><1.8><5><0.8>" (from left to right, randomness, sparsity and deadend removal in that order).
+If you want to specify them (they're optional), you include them in the map name, as in this example: `your-map-name <rand><1.8><5><0.8>` (from left to right, randomness, sparsity and deadend removal in that order).
 
 * *Randomness* is the chance that a corridor will twist instead of continuing straight (decimal value between 0 and 1.0, default is 0.5).
 * *Sparsity* represents the number of deadends to be shortened, creating empty spaces (integer value of 0 or more, default is 3). Note that a smaller maze will sparsify faster than a larger one, so for small mazes you'll want a small number.
 * *Deadend removal* (or removalChance) is the chance for a deadend to be removed by connecting it (creating a loop) to a nearby one (decimal value between 0 and 1.0, default is 0.5). Note that this can create multiple solutions to the maze, but it m
 ay also make the maze seem more natural.
 
-So if you wanted very twisty mazes with no empty spaces or deadends, you'd name the map something like: "your-map-name <rand><1.0><0><1.0>".  Spaces etc. between the tags shouldn't matter.
+So if you wanted very twisty mazes with no empty spaces or deadends, you'd name the map something like: `your-map-name <rand><1.0><0><1.0>`.  Spaces etc. between the tags shouldn't matter.
 
 
