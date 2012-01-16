@@ -1,9 +1,7 @@
 Random Map Generator (v 0.51)
 ===
 
-A script for [RPG Maker XP](http://en.wikipedia.org/wiki/RPG_Maker_XP), which uses Ruby. Written years ago and posted on some now-defunct forums, but may still be useful to folks.
-
-Dynamically transforms a blank map into a fully-drawn one using its current tileset (and keeping any events that may have been placed).  It accomplishes this by randomly generating an underlying structure (in this case a maze, though other generation algorithms are planned) and then individually placing the appropriate tiles to create the map.
+This script dynamically transforms a blank map into a fully-drawn one using its current tileset (and keeping any events that may have been placed).  It accomplishes this by randomly generating an underlying structure (in this case a maze, though other generation algorithms are planned) and then individually placing the appropriate tiles to create the map.
 
 The generation algorithm can be guided by certain parameters, and tile selection is fully customizable (even autotiles).  Of course, this all happens invisibly; the player should experience no delays.  Finally, using (a slight modification of) Near Fantastica's Dynamic Maps script, the randomly generated map can be saved (remain the same when returned to by the player) or left random so that every visit results in a different map.
 
