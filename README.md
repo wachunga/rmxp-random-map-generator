@@ -5,9 +5,9 @@ This script dynamically transforms a blank map into a fully-drawn one using its 
 
 The generation algorithm can be guided by certain parameters, and tile selection is fully customizable (even autotiles).  Of course, this all happens invisibly; the player should experience no delays.  Finally, using (a slight modification of) Near Fantastica's Dynamic Maps script, the randomly generated map can be saved (remain the same when returned to by the player) or left random so that every visit results in a different map.
 
-![Maze](http://s88387243.onlinehome.us/rmxp/rand_maze1.jpg)
+![Maze](rand_maze1.jpg)
 
-![Another maze](http://s88387243.onlinehome.us/rmxp/rand_maze2.jpg)
+![Another maze](rand_maze2.jpg)
 
 
 Sample uses:
